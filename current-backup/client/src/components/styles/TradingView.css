@@ -1,0 +1,497 @@
+/* TradingView Component Styles */
+.trading-view {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  background-color: #1e222d;
+  color: #d1d4dc;
+  overflow: hidden;
+}
+
+.trading-view.light {
+  background-color: #ffffff;
+  color: #131722;
+}
+
+/* Trading Header */
+.trading-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #2a2e39;
+  background-color: #131722;
+}
+
+.trading-view.light .trading-header {
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #e0e3eb;
+}
+
+.symbol-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.symbol-info h1 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+}
+
+.price-info {
+  display: flex;
+  align-items: center;
+}
+
+.current-price {
+  font-size: 16px;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.price-change {
+  font-size: 14px;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.price-info.positive .price-change {
+  color: #26a69a;
+  background-color: rgba(38, 166, 154, 0.1);
+}
+
+.price-info.negative .price-change {
+  color: #ef5350;
+  background-color: rgba(239, 83, 80, 0.1);
+}
+
+/* Chart Controls */
+.chart-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.control-group {
+  display: flex;
+  background-color: #2a2e39;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.trading-view.light .control-group {
+  background-color: #e0e3eb;
+}
+
+.chart-type-button {
+  background: none;
+  border: none;
+  color: #787b86;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 4px;
+}
+
+.chart-type-button:hover {
+  background-color: #2a2e39;
+  color: #d1d4dc;
+}
+
+.trading-view.light .chart-type-button:hover {
+  background-color: #e0e3eb;
+  color: #131722;
+}
+
+.chart-type-button.active {
+  color: #2962ff;
+  background-color: rgba(41, 98, 255, 0.1);
+}
+
+.timeframe-selector {
+  display: flex;
+  background-color: #2a2e39;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.trading-view.light .timeframe-selector {
+  background-color: #e0e3eb;
+}
+
+.timeframe-button {
+  background: none;
+  border: none;
+  padding: 6px 8px;
+  font-size: 12px;
+  color: #787b86;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.timeframe-button:hover {
+  color: #d1d4dc;
+}
+
+.trading-view.light .timeframe-button:hover {
+  color: #131722;
+}
+
+.timeframe-button.active {
+  color: #fff;
+  background-color: #2962ff;
+}
+
+.chart-settings-button {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: #787b86;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.chart-settings-button:hover {
+  background-color: #2a2e39;
+  color: #d1d4dc;
+}
+
+.trading-view.light .chart-settings-button:hover {
+  background-color: #e0e3eb;
+  color: #131722;
+}
+
+/* Main Content Area */
+.trading-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.trading-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chart-container {
+  flex: 1;
+  position: relative;
+  background-color: #131722;
+  min-height: 450px;
+}
+
+.trading-view.light .chart-container {
+  background-color: #ffffff;
+}
+
+/* Loading indicator */
+.chart-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(19, 23, 34, 0.7);
+  z-index: 10;
+}
+
+.trading-view.light .chart-loading {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.chart-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  border-top-color: #2962ff;
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Trading Sidebar */
+.trading-sidebar {
+  width: 300px;
+  background-color: #131722;
+  border-left: 1px solid #2a2e39;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.trading-view.light .trading-sidebar {
+  background-color: #ffffff;
+  border-left: 1px solid #e0e3eb;
+}
+
+/* Order Panel */
+.order-panel {
+  padding: 16px;
+  border-bottom: 1px solid #2a2e39;
+}
+
+.trading-view.light .order-panel {
+  border-bottom: 1px solid #e0e3eb;
+}
+
+.order-tabs {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.order-tab {
+  flex: 1;
+  padding: 8px 0;
+  text-align: center;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: #787b86;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.order-tab.active {
+  border-bottom: 2px solid;
+  color: #d1d4dc;
+}
+
+.order-tab.active.buy {
+  border-color: #26a69a;
+  color: #26a69a;
+}
+
+.order-tab.active.sell {
+  border-color: #ef5350;
+  color: #ef5350;
+}
+
+.order-type-selector {
+  display: flex;
+  background-color: #2a2e39;
+  border-radius: 4px;
+  padding: 2px;
+  margin-bottom: 16px;
+}
+
+.trading-view.light .order-type-selector {
+  background-color: #e0e3eb;
+}
+
+.order-type-button {
+  flex: 1;
+  padding: 8px 0;
+  text-align: center;
+  background: none;
+  border: none;
+  color: #787b86;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.order-type-button:hover {
+  color: #d1d4dc;
+}
+
+.trading-view.light .order-type-button:hover {
+  color: #131722;
+}
+
+.order-type-button.active {
+  color: #fff;
+  background-color: #2962ff;
+}
+
+.order-form {
+  margin-bottom: 16px;
+}
+
+.form-group {
+  margin-bottom: 12px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 12px;
+  color: #787b86;
+  margin-bottom: 4px;
+}
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-icon input {
+  width: 100%;
+  padding: 8px 60px 8px 12px;
+  border: 1px solid #2a2e39;
+  background-color: #131722;
+  color: #d1d4dc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.trading-view.light .input-with-icon input {
+  background-color: #ffffff;
+  border: 1px solid #e0e3eb;
+  color: #131722;
+}
+
+.input-with-icon input:focus {
+  outline: none;
+  border-color: #2962ff;
+}
+
+.input-suffix {
+  position: absolute;
+  right: 12px;
+  font-size: 12px;
+  color: #787b86;
+}
+
+.order-buttons {
+  margin-top: 16px;
+}
+
+.order-button {
+  width: 100%;
+  padding: 10px 0;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.buy-button {
+  background-color: #26a69a;
+  color: #ffffff;
+}
+
+.buy-button:hover {
+  background-color: #219387;
+}
+
+.sell-button {
+  background-color: #ef5350;
+  color: #ffffff;
+}
+
+.sell-button:hover {
+  background-color: #eb3b38;
+}
+
+.order-summary {
+  background-color: #1e222d;
+  border-radius: 4px;
+  padding: 12px;
+}
+
+.trading-view.light .order-summary {
+  background-color: #f5f5f5;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.summary-row:last-child {
+  margin-bottom: 0;
+}
+
+.summary-row span:first-child {
+  color: #787b86;
+}
+
+/* Market Info Panel */
+.market-info-panel {
+  padding: 16px;
+}
+
+.market-info-panel h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #2a2e39;
+}
+
+.trading-view.light .info-row {
+  border-bottom: 1px solid #e0e3eb;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-row span:first-child {
+  color: #787b86;
+  font-size: 12px;
+}
+
+.info-row span:last-child {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .trading-sidebar {
+    width: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .trading-content {
+    flex-direction: column;
+  }
+  
+  .trading-sidebar {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid #2a2e39;
+  }
+  
+  .trading-view.light .trading-sidebar {
+    border-top: 1px solid #e0e3eb;
+  }
+  
+  .chart-container {
+    min-height: 300px;
+  }
+} 

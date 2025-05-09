@@ -1,0 +1,45 @@
+{
+  "name": "trinity",
+  "version": "1.0.0",
+  "description": "Modern web application with multi-language support",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "client": "cd client && npm start",
+    "dev:all": "concurrently \"npm run dev\" \"npm run client\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "web",
+    "application",
+    "multi-language"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^7.0.2",
+    "@mui/material": "^7.0.2",
+    "axios": "^1.9.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^4.21.2",
+    "i18next": "^23.16.8",
+    "i18next-http-backend": "^3.0.2",
+    "i18next-http-middleware": "^3.7.4",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.15.6",
+    "react-i18next": "^15.5.1",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.5.3",
+    "recharts": "^2.15.3",
+    "ws": "^8.18.2"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "nodemon": "^2.0.22"
+  }
+}
