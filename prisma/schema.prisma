@@ -1,0 +1,81 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String    @id @default(uuid())
+  email          String    @unique
+  name           String?
+  password       String
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  preferences    Json?
+  watchlists     Watchlist[]
+  portfolios     Portfolio[]
+}
+
+model Watchlist {
+  id             String    @id @default(uuid())
+  name           String
+  userId         String
+  user           User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  symbols        Symbol[]
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+}
+
+model Symbol {
+  id             String    @id @default(uuid())
+  ticker         String
+  name           String?
+  exchange       String?
+  type           String? // stock, crypto, forex
+  watchlistId    String
+  watchlist      Watchlist @relation(fields: [watchlistId], references: [id], onDelete: Cascade)
+  portfolioItems PortfolioItem[]
+}
+
+model Portfolio {
+  id             String    @id @default(uuid())
+  name           String
+  userId         String
+  user           User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items          PortfolioItem[]
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+}
+
+model PortfolioItem {
+  id             String    @id @default(uuid())
+  portfolioId    String
+  portfolio      Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+  symbolId       String
+  symbol         Symbol    @relation(fields: [symbolId], references: [id])
+  quantity       Float
+  averagePrice   Float
+  transactions   Transaction[]
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+}
+
+model Transaction {
+  id             String    @id @default(uuid())
+  portfolioItemId String
+  portfolioItem  PortfolioItem @relation(fields: [portfolioItemId], references: [id], onDelete: Cascade)
+  type           String    // buy, sell
+  price          Float
+  quantity       Float
+  date           DateTime
+  createdAt      DateTime  @default(now())
+}
