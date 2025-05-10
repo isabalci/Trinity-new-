@@ -132,7 +132,8 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed = false }) => {
         </nav>
         
         <div className="p-4 mt-auto">
-          <button 
+          <Link 
+            href="/auth/login"
             className="w-full flex items-center justify-center p-2 text-sm bg-tradingview-blue text-white rounded hover:bg-blue-700"
           >
             {collapsed ? (
@@ -148,7 +149,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed = false }) => {
             ) : (
               <span>Giriş Yap</span>
             )}
-          </button>
+          </Link>
         </div>
       </div>
     </aside>
